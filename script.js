@@ -26,11 +26,11 @@ async function searchMeal(e) {
        console.log(meal.data.meals[0].strMeal)
        resultHeading.innerHTML = `<h2>Search Results for '${term}': </h2>`
 
-       if(meal.meals === null){
-           resultHeading.innerHTML = `There are no search results for ${term}. Try again!`
-       }
-       else {
-           mealsEl.innerHTML = meal.meals.map(meal => `
+        if(meal.meals === null){
+            resultHeading.innerHTML = `There are no search results for ${term}. Try again!`
+        }
+        else {
+        mealsEl.innerHTML = meal.meals.map(meal => `
             <div class= 'meal'>
                 <img src= "${meal.strMealThumb} alt = ${meal.strMeal}" />
                 <div class= "meal-info" data-mealID ="${meal.idMeal}">
