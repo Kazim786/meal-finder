@@ -5,11 +5,10 @@ const mealsEl = document.getElementById('meals');
 const resultHeading = document.getElementById('result-heading');
 const single_mealEl = document.getElementById('single-meal');
 
-
 //Functions 
 
 //search meal and fetch from API
-const searchMeal = (e) => {
+async function searchMeal(e) {
     e.preventDefault(); //since its a submit event we should to preventDefault
     
     //clear single meal
@@ -18,7 +17,16 @@ const searchMeal = (e) => {
     //get search term
 
     const term = search.value
-    console.log(term)
+    
+    //check for empty
+
+    if(term.trim()){
+       const meal = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
+       console.log(meal.data)
+    }
+    else{
+        alert('Cant be blank')
+    }
 }
 
 //EventListeners
