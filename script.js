@@ -22,7 +22,7 @@ async function searchMeal(e) {
 
     if(term.trim()){
        const meal = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
-       console.log(meal.data)
+       console.log(meal.data.meals[0].strMeal)
     }
     else{
         alert('Cant be blank')
